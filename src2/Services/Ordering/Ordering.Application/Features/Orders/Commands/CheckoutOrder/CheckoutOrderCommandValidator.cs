@@ -10,7 +10,7 @@ namespace Ordering.Application.Features.Orders.Commands.CheckoutOrder
     public class CheckoutOrderCommandValidator : AbstractValidator<CheckoutOrderCommand>
     {
         public CheckoutOrderCommandValidator()
-        {
+        {// break point
             RuleFor(p => p.UserName)
                 .NotEmpty().WithMessage("{UserName} is required.")
                 .NotNull()

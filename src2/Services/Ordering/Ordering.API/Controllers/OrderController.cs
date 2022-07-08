@@ -27,7 +27,7 @@ namespace Ordering.API.Controllers
         [HttpGet("{userName}", Name = "GetOrder")]
         [ProducesResponseType(typeof(IEnumerable<OrdersVm>), (int)HttpStatusCode.OK)]
         public async Task<ActionResult<IEnumerable<OrdersVm>>> GetOrdersByUserName(string userName)
-        {
+        {//break point 
             var query = new GetOrdersListQuery(userName);
             var orders = await _mediator.Send(query);
             return Ok(orders);
@@ -36,7 +36,7 @@ namespace Ordering.API.Controllers
         [HttpPost(Name = "CheckoutOrder")]
         [ProducesResponseType((int)HttpStatusCode.OK)]
         public async Task<ActionResult<int>> CheckoutOrder([FromBody] CheckoutOrderCommand command)
-        {
+        {//break point
             var result = await _mediator.Send(command);
             return Ok(result);
         }
@@ -46,7 +46,7 @@ namespace Ordering.API.Controllers
         [ProducesResponseType(StatusCodes.Status404NotFound)]
         [ProducesDefaultResponseType]
         public async Task<ActionResult> UpdateOrder([FromBody] UpdateOrderCommand command)
-        {
+        {//break point
             await _mediator.Send(command);
             return NoContent();
         }
@@ -56,7 +56,7 @@ namespace Ordering.API.Controllers
         [ProducesResponseType(StatusCodes.Status404NotFound)]
         [ProducesDefaultResponseType]
         public async Task<ActionResult> DeleteOrder(int id)
-        {
+        {//break point
             var command = new DeleteOrderCommand() { Id = id };
             await _mediator.Send(command);
             return NoContent();

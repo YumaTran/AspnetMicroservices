@@ -23,7 +23,7 @@ namespace Ordering.Application.Behaviours
 
         public async Task<TResponse> Handle(TRequest request, CancellationToken cancellationToken, 
             RequestHandlerDelegate<TResponse> next)
-        {
+        {//break point
             if (_validators.Any())
             {
                 var context = new ValidationContext<TRequest>(request);
