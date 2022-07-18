@@ -2,6 +2,9 @@
   "Routes": [
     //Catalog API
     {
+      "UpstreamHeaderTransform": {
+        "Uncle": "Bob"
+      },
       "DownstreamPathTemplate": "/api/v1/Catalog",
       "DownstreamScheme": "http",
       "DownstreamHostAndPorts": [
@@ -10,6 +13,9 @@
           "Port": "80"
         }
       ],
+      "DownstreamHeaderTransform": {
+        "Uncle": "Bob"
+      },
       "UpstreamPathTemplate": "/Catalog",
       "UpstreamHttpMethod": [ "GET", "POST", "PUT" ],
       "FileCacheOptions": { "TtlSeconds": 30 }
